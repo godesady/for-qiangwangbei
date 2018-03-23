@@ -1,0 +1,28 @@
+`shell_command`  执行shell_command命令
+$(shell_command) 执行shell_command命令
+| shell_command 执行shell_command命令并返回结果
+|| shell_command 执行shell_command命令并返回结果
+; shell_command 执行shell_command命令并返回结果
+&& shell_command 执行shell_command命令并返回结果
+> target_file 返回结果覆盖到target_file里
+>> target_file 返回结果追加到target_file里
+< target_file 把target_file的内容输入到之前的命令当中
+- operator 给目标指令添加额外的参数
+常用命令执行函数
+
+　　exec()、system()、popen()、passthru()、proc_open()、pcntl_exec()、shell_exec() 、反引号` 实际上是使用shell_exec()函数
+
+system() 输出并返回最后一行shell结果。 
+exec() 不输出结果，返回最后一行shell结果，所有结果可以保存到一个返回的数组里面。 
+passthru() 只调用命令，把命令的运行结果原样地直接输出到标准输出设备上。 
+
+popen()、proc_open() 不会直接返回执行结果，而是返回一个文件指针
+
+PHP的文件读取函数：
+1.fread
+2.fgets
+3.fgetss
+4.file
+5.readfile
+6.file_get_contents
+7.fpassthru
