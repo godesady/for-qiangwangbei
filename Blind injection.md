@@ -2,6 +2,7 @@
 2018/3/23-for qiangwwangbei
 一、盲注脚本
   1、sleep盲注
+
 #coding:utf-8
 import requests;
 maystr="0987654321qwertyuiopasdfghjklzxcvbnm."
